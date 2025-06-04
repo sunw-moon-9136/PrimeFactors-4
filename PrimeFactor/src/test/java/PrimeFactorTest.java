@@ -11,11 +11,6 @@ class PrimeFactorTest {
 
     private PrimeFactor primeFactor;
 
-    @BeforeEach
-    void setUp() {
-        primeFactor = new PrimeFactor();
-    }
-
     @Nested
     class NormalTest {
         @Test
@@ -44,7 +39,7 @@ class PrimeFactorTest {
         }
 
         private void primeFactorTest(List<Integer> expected, int input) {
-            assertEquals(expected, primeFactor.getPrimeFactors(input));
+            assertEquals(expected, PrimeFactor.getPrimeFactors(input));
         }
     }
 
@@ -53,7 +48,7 @@ class PrimeFactorTest {
         @Test
         void getPrimeFactorsFromMinus25() {
             assertThrowsExactly(IllegalArgumentException.class,
-                    () -> primeFactor.getPrimeFactors(-25));
+                    () -> PrimeFactor.getPrimeFactors(-25));
         }
     }
 }

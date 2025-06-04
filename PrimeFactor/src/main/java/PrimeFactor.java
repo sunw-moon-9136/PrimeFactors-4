@@ -3,7 +3,7 @@ import java.util.List;
 
 public class PrimeFactor {
 
-    public List<Integer> getPrimeFactors(int input) {
+    public static List<Integer> getPrimeFactors(int input) {
         if (input < 0) throw new IllegalArgumentException();
 
         List<Integer> ret = new ArrayList<>();
