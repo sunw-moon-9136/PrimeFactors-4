@@ -52,8 +52,7 @@ class PrimeFactorTest {
 
     @Test
     void getPrimeFactorsFromMinus25() {
-        List<Integer> expected = List.of();
-
-        assertThrowsExactly(IllegalArgumentException.class, () -> primeFactor.getPrimeFactors(-25));
+        assertThrowsExactly(IllegalArgumentException.class,
+                () -> primeFactor.getPrimeFactors(-25));
     }
 }
