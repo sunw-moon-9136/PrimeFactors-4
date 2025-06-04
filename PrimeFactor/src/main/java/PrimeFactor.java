@@ -3,13 +3,7 @@ import java.util.List;
 
 public class PrimeFactor {
 
-    private final int input;
-
-    public PrimeFactor(int input){
-        this.input = input;
-    }
-    
-    public List<Integer> getPrimeFactors() {
+    public List<Integer> getPrimeFactors(int input) {
         List<Integer> ret = new ArrayList<>();
         int calcNum = input;
 
