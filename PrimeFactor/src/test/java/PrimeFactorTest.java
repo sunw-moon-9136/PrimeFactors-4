@@ -29,4 +29,20 @@ class PrimeFactorTest {
 
         assertEquals(expected, primeFactor.getPrimeFactors());
     }
+
+    @Test
+    void getPrimeFactorsFrom1() {
+        PrimeFactor primeFactor = new PrimeFactor(1);
+        List<Integer> expected = List.of();
+
+        assertEquals(expected, primeFactor.getPrimeFactors());
+    }
+
+    @Test
+    void getPrimeFactorsFrom0() {
+        PrimeFactor primeFactor = new PrimeFactor(1);
+        List<Integer> expected = List.of();
+
+        assertEquals(expected, primeFactor.getPrimeFactors());
+    }
 }
