@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -15,44 +16,44 @@ class PrimeFactorTest {
         primeFactor = new PrimeFactor();
     }
 
-    @Test
-    void getPrimeFactorsFrom35() {
-        List<Integer> expected = List.of(5, 7);
+    @Nested
+    class NormalTest {
+        @Test
+        void getPrimeFactorsFrom35() {
+            primeFactorTest(List.of(5, 7), 35);
+        }
 
-        assertEquals(expected, primeFactor.getPrimeFactors(35));
+        @Test
+        void getPrimeFactorsFrom72() {
+            primeFactorTest(List.of(2, 2, 2, 3, 3), 72);
+        }
+
+        @Test
+        void getPrimeFactorsFrom100() {
+            primeFactorTest(List.of(2, 2, 5, 5), 100);
+        }
+
+        @Test
+        void getPrimeFactorsFrom1() {
+            primeFactorTest(List.of(), 1);
+        }
+
+        @Test
+        void getPrimeFactorsFrom0() {
+            primeFactorTest(List.of(), 0);
+        }
+
+        private void primeFactorTest(List<Integer> expected, int input) {
+            assertEquals(expected, primeFactor.getPrimeFactors(input));
+        }
     }
 
-    @Test
-    void getPrimeFactorsFrom72() {
-        List<Integer> expected = List.of(2, 2, 2, 3, 3);
-
-        assertEquals(expected, primeFactor.getPrimeFactors(72));
-    }
-
-    @Test
-    void getPrimeFactorsFrom100() {
-        List<Integer> expected = List.of(2, 2, 5, 5);
-
-        assertEquals(expected, primeFactor.getPrimeFactors(100));
-    }
-
-    @Test
-    void getPrimeFactorsFrom1() {
-        List<Integer> expected = List.of();
-
-        assertEquals(expected, primeFactor.getPrimeFactors(1));
-    }
-
-    @Test
-    void getPrimeFactorsFrom0() {
-        List<Integer> expected = List.of();
-
-        assertEquals(expected, primeFactor.getPrimeFactors(0));
-    }
-
-    @Test
-    void getPrimeFactorsFromMinus25() {
-        assertThrowsExactly(IllegalArgumentException.class,
-                () -> primeFactor.getPrimeFactors(-25));
+    @Nested
+    class AbnormalTest {
+        @Test
+        void getPrimeFactorsFromMinus25() {
+            assertThrowsExactly(IllegalArgumentException.class,
+                    () -> primeFactor.getPrimeFactors(-25));
+        }
     }
 }
