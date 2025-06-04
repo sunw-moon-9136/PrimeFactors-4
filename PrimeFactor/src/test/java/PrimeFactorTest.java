@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 class PrimeFactorTest {
 
@@ -47,5 +48,12 @@ class PrimeFactorTest {
         List<Integer> expected = List.of();
 
         assertEquals(expected, primeFactor.getPrimeFactors(0));
+    }
+
+    @Test
+    void getPrimeFactorsFromMinus25() {
+        List<Integer> expected = List.of();
+
+        assertThrowsExactly(IllegalArgumentException.class, () -> primeFactor.getPrimeFactors(-25));
     }
 }
